@@ -126,8 +126,8 @@ export const deleteUser = async (req: Request, res: Response): Promise<any> => {
     }
 
     // Cascade Delete: Delete all related contributions and notifications
-    await Contribution.deleteMany({ userId });
-    await Notification.deleteMany({ userId });
+    await Contribution.deleteMany({ userId: userId as string });
+    await Notification.deleteMany({ userId: userId as string });
 
     // Finally, delete the user
     await User.findByIdAndDelete(userId);
