@@ -6,7 +6,10 @@ import router from "./routes/index.js";
 const app: Express = express();
 
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: [
+        "http://localhost:3000",
+        "https://friends-association-plum.vercel.app",
+    ],
     credentials: true
 }));
 
